@@ -1,0 +1,85 @@
+.header {
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+    margin: 1rem;
+    padding: 1rem 0;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 99px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--glass-border);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+.searchBar:focus-within {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.searchInput {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    width: 100%;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.searchBtn {
+    background: transparent;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.cartIcon {
+    position: relative;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.cartIcon:hover {
+    color: var(--accent-primary);
+}
+
+.cartCount {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent-primary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .searchBar {
+        display: none;
+    }
+}
