@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { useCart } from '../context/CartContext';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import styles from './Header.module.css';
 
-export default function Header() {
+function HeaderContent() {
   const { cartCount } = useCart();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -52,5 +52,21 @@ export default function Header() {
         </nav>
       </div>
     </header>
+  );
+}
+
+export default function Header() {
+  return (
+    <Suspense fallback={
+      <header className={`${styles.header} glass-panel`}>
+        <div className={`container ${styles.headerContent}`}>
+          <Link href="/" className={styles.logo}>
+            <span className="text-gradient">Lumina</span>Store
+          </Link>
+        </div>
+      </header>
+    }>
+      <HeaderContent />
+    </Suspense>
   );
 }
